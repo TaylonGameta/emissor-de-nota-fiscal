@@ -1,8 +1,11 @@
 <?php
-    include_once "../../../../config/Database.php";
-    include_once "../../../../model/Destinario.php";
-    include_once "../../../../model/Usuario.php";
-    include_once "../../../../model/Token.php";
+    include_once "../../../config/Database.php";
+    include_once "../../../model/Destinario.php";
+    include_once "../../../model/Usuario.php";
+    include_once "../../../model/Token.php";
+
+    // headers
+    header("Content-Type: application/json");
 
     // database connection
     $database = new Database();
