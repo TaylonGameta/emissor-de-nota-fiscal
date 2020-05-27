@@ -1,0 +1,15 @@
+{
+    "name": "taylon/nfeasy",
+    "description": "A prototype about a bigger project that makes nfe and manage stuff",
+    "authors": [
+        {
+            "name": "TaylonGameta",
+            "email": "taylon.gameta@outlook.com.br"
+        }
+    ],
+    "require": {
+        "fpdf/fpdf": "^1.82",
+        "setasign/fpdi-tcpdf": "^2.0",
+        "mpdf/mpdf": "^8.0"
+    }
+}
