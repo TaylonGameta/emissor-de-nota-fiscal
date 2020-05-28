@@ -18,15 +18,6 @@
     $usuario = new Usuario($conn);
     $auth = $usuario->auth($token);
 
-    if(!$auth){
-        $message = [
-            'error'=> 'token not valid'
-        ];
-
-        echo json_encode($message);
-        exit();
-    }
-
 
     //resume application if it was properly authenticated
     $destinario = new Destinario($conn);
