@@ -15,17 +15,18 @@
     $headers = apache_request_headers();
     $token = $headers['Authorization'];
 
-    $usuario = new Usuario();
+    $usuario = new Usuario($conn);
     $auth = $usuario->auth($token);
 
     if(!$auth){
         $message = [
-            'msg'=> 'result'
+            'error'=> 'token not valid'
         ];
 
         echo json_encode($message);
         exit();
     }
+
 
     //resume application if it was properly authenticated
     $destinario = new Destinario($conn);
