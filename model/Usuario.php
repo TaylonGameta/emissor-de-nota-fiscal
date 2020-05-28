@@ -10,7 +10,6 @@
 
         public $email;
         public $password;
-
         private $conn;
 
         public function __construct($db){
@@ -19,7 +18,7 @@
 
         public function login(){
             $stmt = $this->conn->prepare("SELECT * FROM usuario WHERE email = :email AND password = :password");
-            $stmt->execute(array('email' => $this->email, 'password' => $this->password));
+            $stmt->execute(array(':email' => $this->email, ':password' => $this->password));
 
             $rowLength = $stmt->rowCount();
 
@@ -35,9 +34,7 @@
                 $message = ['error'=> 'user not found'];
                 echo json_encode($message);
                 exit();
-            }
-            
-            
+            }   
         }   
     
         public function auth($userToken){
@@ -47,7 +44,12 @@
 
             $token = new Token();
             $valid = $token->verify($tokenValue);
-            return $valid;
+            
+            if(!$valid){
+                $message = array('error'=> 'user not found');
+                echo json_encode($message);
+                exit();
+            }
         }
     }
 
