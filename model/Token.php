@@ -37,7 +37,6 @@
 
         /*
         *** @arg {string} token provided by create function
-        *** @arg {string} secret key given by the user
         */
 
         public function verify($token){
