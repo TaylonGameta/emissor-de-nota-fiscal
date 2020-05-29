@@ -30,11 +30,10 @@
                 $newToken = $token->create($id);
                 echo $newToken;
             }
-            else{
-                $message = ['error'=> 'user not found'];
-                echo json_encode($message);
-                exit();
-            }   
+            
+            $message = ['error'=> 'user not found'];
+            echo json_encode($message);
+            exit();
         }   
     
         public function auth($userToken){
