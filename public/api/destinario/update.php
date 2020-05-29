@@ -22,7 +22,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     /*
-    *** creating a destinario class and adding attributes to insert inside database
+    *** creating a destinario class and adding attributes to update database
     */
     $destinario = new Destinario($conn);
     $destinario->nome = $data->nome;
@@ -33,7 +33,7 @@
     $destinario->telefone = $data->telefone;
     $destinario->inscricao_estadual = $data->inscricao_estadual;
 
-    $create = $destinario->update($data->id);
+    $update = $destinario->update($data->id);
 
 
 ?>
