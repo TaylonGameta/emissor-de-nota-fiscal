@@ -7,10 +7,43 @@
     class Destinario{
 
         private $conn;
+        public $nome;
+        public $cnpj;
+        public $endereco;
+        public $municipio;
+        public $uf;
+        public $telefone;
+        public $inscricao_estadual;
 
         //pass the connection in construct
         public function __construct($db){
             $this->conn = $db;
+        }
+
+        public function create(){
+            $stmt = $this->conn->prepare("INSERT INTO destinario(nome, cnpj, endereco, municipio, uf, telefone, inscricao_estadual)
+            VALUES (:nome, :cnpj, :endereco, :municipio, :uf, :telefone, :inscricao_estadual)");
+
+            $stmt->execute(array(
+                ':nome' => $this->nome,
+                ':cnpj' => $this->cnpj,
+                ':endereco' => $this->endereco,
+                ':municipio' => $this->municipio,
+                ':uf' => $this->uf,
+                ':telefone' => $this->telefone,
+                ':inscricao_estadual' => $this->inscricao_estadual
+            ));
+
+            if($stmt->rowCount() < 1){
+                $message = ['error' => 'something wents wrong'];
+                echo json_encode($message);
+                exit();
+            }
+
+            $message = ['success' => 'added succesfuly'];
+            echo json_encode($message);
+            exit();
+
         }
 
         /*
