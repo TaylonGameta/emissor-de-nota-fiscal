@@ -17,7 +17,10 @@
         ** @arg {int} the destinario id
         */
         public function getById($id){
-
+            $stmt = $this->conn->prepare("SELECT * FROM destinario WHERE id = :id");
+            $stmt->execute(array(':id' => $id));
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($result);
         }
 
 
