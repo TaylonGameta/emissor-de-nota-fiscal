@@ -22,7 +22,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     /*
-    *** creating a destinario class and adding attributes to insert inside database
+    *** creating a destinario class and adding attributes to delete content from database
     */
     $destinario = new Destinario($conn);
     
