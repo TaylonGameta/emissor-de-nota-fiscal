@@ -40,10 +40,45 @@
                 exit();
             }
 
-            $message = ['success' => 'added succesfuly'];
+            $message = ['success' => 'added successfuly'];
             echo json_encode($message);
             exit();
 
+        }
+
+        /*
+        *** @arg {id} destinario id
+        */
+        public function update($id){
+            $stmt = $this->conn->prepare("
+                UPDATE destinario
+
+                SET nome= :nome, cnpj= :cnpj, endereco= :endereco, municipio= :municipio, uf= :uf, telefone= :telefone,
+                inscricao_estadual = :inscricao_estadual
+
+                WHERE id = :id
+            ");
+
+            $stmt->execute(array(
+                ':id' => $id,
+                ':nome' => $this->nome,
+                ':cnpj' => $this->cnpj,
+                ':endereco' => $this->endereco,
+                ':municipio' => $this->municipio,
+                ':uf' => $this->uf,
+                ':telefone' => $this->telefone,
+                ':inscricao_estadual' => $this->inscricao_estadual
+            ));
+
+            if($stmt->rowCount() < 1){
+                $message = ['error' => 'something wents wrong'];
+                echo json_encode($message);
+                exit();
+            }
+
+            $message = ['success' => 'updated successfuly'];
+            echo json_encode($message);
+            exit();
         }
 
         /*
@@ -76,6 +111,21 @@
             }
             echo json_encode($data);
             
+        }
+
+        public function delete($id){
+            $stmt = $this->conn->prepare("DELETE FROM destinario WHERE id = :id");
+            $stmt->execute(array(':id'=> $id));
+
+            if($stmt->rowCount() < 1){
+                $message = ['error' => 'something wents wrong'];
+                echo json_encode($message);
+                exit();
+            }
+
+            $message = ['success' => 'deleted successfuly'];
+            echo json_encode($message);
+            exit();
         }
     }
 
