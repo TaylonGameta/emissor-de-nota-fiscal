@@ -95,13 +95,14 @@
         public function getAll(){
             $stmt = $this->conn->prepare("SELECT * FROM destinario");
             $stmt->execute();
+            $data = [];
             
             while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 //using that function to get array data easier
                 extract($row);
-
+                
                 $data[] = array(
-                    'nome'=> utf8_encode($nome),
+                    'nome'=> $nome,
                     'cnpj'=> $cnpj,
                     'endereco' => $endereco,
                     'uf'=> $uf,
@@ -109,6 +110,7 @@
                     'inscricao_estadual' => $inscricao_estadual
                 );
             }
+
             echo json_encode($data);
             
         }
