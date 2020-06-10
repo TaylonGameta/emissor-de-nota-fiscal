@@ -7,6 +7,7 @@
         private $conn;
         public $descricao;
         public $valor_unitario;
+        public $usuario_id;
 
         public function __construct($db){
             $this->conn = $db;
@@ -14,13 +15,14 @@
 
         public function create(){
             $stmt = $this->conn->prepare("
-                INSERT INTO produto(descricao, valor_unitario)
-                VALUES(:descricao, :valor_unitario)
+                INSERT INTO produto(descricao, valor_unitario, usuario_id, created_at, updated_at)
+                VALUES(:descricao, :valor_unitario, :usuario_id, NOW(), NOW())
             ");
 
             $stmt->execute(array(
                 ':descricao' => $this->descricao,
-                ':valor_unitario' => $this->valor_unitario
+                ':valor_unitario' => $this->valor_unitario,
+                ':usuario_id' => $this->usuario_id,
             ));
 
             if($stmt->rowCount() > 0){

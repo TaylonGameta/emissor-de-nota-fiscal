@@ -28,7 +28,9 @@
 
                 $token = new Token();
                 $newToken = $token->create($id);
-                echo $newToken;
+                $message = ['token' => $newToken];
+                echo json_encode($message);
+                exit();
             }
             
             $message = ['error'=> 'user not found'];

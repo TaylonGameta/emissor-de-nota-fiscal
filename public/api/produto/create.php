@@ -24,9 +24,16 @@
     /*
     *** creating a produto class and adding attributes to insert inside database
     */
+
+    //GET USER ID FROM HEADERS
+    $userToken = new Token();
+    $id = $userToken->getUserId($token);
+    
+
     $produto = new Produto($conn);
     $produto->descricao = $data->descricao;
     $produto->valor_unitario = $data->valor_unitario;
+    $produto->usuario_id = $id;
 
     $produto->create();
 

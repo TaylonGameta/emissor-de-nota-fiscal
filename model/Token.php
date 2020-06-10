@@ -56,6 +56,17 @@
             }
 
         }
+
+        public function getUserId($token){
+            $part = explode(".", $token);
+            $header = $part[0];
+            $payload = $part[1];
+            $signature = $part[2];
+
+            $payload = base64_decode($payload);
+            $payload = json_decode($payload);
+            return $payload->sub;
+        }
     }
 
 
