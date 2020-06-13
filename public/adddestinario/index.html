@@ -2,10 +2,11 @@
     <head>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="../assets/css/destinario.css?1sdsd2">
+        <link rel="stylesheet" href="../assets/css/destinario.css?434">
         <meta charset="UTF-8">
     </head>
     <body>
+        <script src="../assets/javascript/destinario.js?sdghsd"></script>
         <div class="tool-bar">
             <button class="ts">TS</button>
             <div class="nota-fiscal"> 
@@ -19,7 +20,7 @@
             <div class="emitente">
                 <button>Emitente</button>
                 <ul>
-                    <li><a href="#">Add</a></li>
+                    <li><a href="http://localhost/nfeasy/public/addemitente/">Add</a></li>
                     <li><a href="#">Alterar</a></li>
                     <li><a href="#">Excluir</a></li>
                 </ul>
@@ -27,7 +28,7 @@
             <div class="produto">
                 <button>Produto</button>
                 <ul>
-                    <li><a href="#">Add</a></li>
+                    <li><a href="http://localhost/nfeasy/public/addproduto/">Add</a></li>
                     <li><a href="#">Alterar</a></li>
                     <li><a href="#">Excluir</a></li>
                 </ul>
@@ -35,7 +36,7 @@
             <div class="destinario">
                 <button>Destinario</button>
                 <ul>
-                    <li><a href="#">Add</a></li>
+                    <li><a href="http://localhost/nfeasy/public/adddestinario/">Add</a></li>
                     <li><a href="#">Alterar</a></li>
                     <li><a href="#">Excluir</a></li>
                 </ul>
@@ -43,64 +44,74 @@
             <div class="transportador">
                 <button>Transportador</button>
                 <ul>
-                    <li><a href="#">Add</a></li>
+                    <li><a href="http://localhost/nfeasy/public/addtransportador/">Add</a></li>
                     <li><a href="#">Alterar</a></li>
                     <li><a href="#">Excluir</a></li>
                 </ul>
             </div>
         </div>
+        <div class="info-bar">
+            <a href="/nfeasy/public/adddestinario/" class="underline">Add</a>
+            <a href="/nfeasy/public/mostrardestinario/">Mostrar</a>
+        </div>
 
-        <div class="container">
-            <div class="info-bar">
-                <a href="#" class="underline">Add</a>
-                <a href="#">Mostrar</a>
-                <a href="#">Excluir</a>
+        <div class="secund-container none" id="secund-container">
+            <p class="title">Sucesso</p>
+            <p class="title-desc">O item foi inserido com sucesso.</p>
+            <div class="buttons">
+                <button onclick="addOutro()" class="submit">Adicionar Outro</button>
+                <button class="submit">Voltar</button>
             </div>
-    
-            <p class="title">Adicionar Destinário</p>
-            <p class="title-desc">Use esta seção para adicionar clientes a sua aplicação, pode ser facilmente usada através de grandes calculos.</p>
+        </div>
 
+        <div id="main-container" class="container">
+
+            <p class="title">Adicionar Destinário</p>
+            <p class="title-desc">Use esta seção para cadastrar destinários.</p>
 
             <div class="form">
                 <div class="form-group">
                     <label for="nome:">Nome:</label>
-                    <input type="text">
+                    <input id="nome" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="CNPJ:">CNPJ:</label>
-                    <input type="text">
+                    <input id="cnpj" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="endereco:">Endereço:</label>
-                    <input type="text">
+                    <input id="endereco" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="municipio:">Município:</label>
-                    <input type="text">
+                    <input id="municipio" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="uf:">UF:</label>
-                    <input type="text">
+                    <input id="uf" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="uf:">telefone:</label>
-                    <input type="text">
+                    <input id="telefone" type="text">
                 </div>
 
                 <div class="form-group">
                     <label for="uf:">Inscrição Estadual:</label>
-                    <input type="text">
+                    <input id="inscricao_estadual" type="text">
                 </div>
             </div>
-
+            
             <div class="buttons">
-                <button class="submit">Cadastrar</button>
+                <button onclick="create()" class="submit">Cadastrar</button>
+                <p id="error"></p>
             </div>
+            
         </div>
+        
     </body>
 </html>
