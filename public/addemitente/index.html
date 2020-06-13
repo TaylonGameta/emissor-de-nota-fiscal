@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="../assets/css/destinario.css?434">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script src="../assets/javascript/emitente.js"></script>
+        <div class="tool-bar">
+            <button class="ts">TS</button>
+            <div class="nota-fiscal"> 
+                <button>Nota Fiscal</button>
+                <ul>
+                    <li><a href="nova">Nova</a></li>
+                    <li><a href="#">Alterar</a></li>
+                    <li><a href="#">Excluir</a></li>
+                </ul>
+            </div>
+            <div class="emitente">
+                <button>Emitente</button>
+                <ul>
+                    <li><a href="http://localhost/nfeasy/public/addemitente/">Add</a></li>
+                    <li><a href="#">Alterar</a></li>
+                    <li><a href="#">Excluir</a></li>
+                </ul>
+            </div>
+            <div class="produto">
+                <button>Produto</button>
+                <ul>
+                    <li><a href="http://localhost/nfeasy/public/addproduto/">Add</a></li>
+                    <li><a href="#">Alterar</a></li>
+                    <li><a href="#">Excluir</a></li>
+                </ul>
+            </div>
+            <div class="destinario">
+                <button>Destinario</button>
+                <ul>
+                    <li><a href="http://localhost/nfeasy/public/adddestinario/">Add</a></li>
+                    <li><a href="#">Alterar</a></li>
+                    <li><a href="#">Excluir</a></li>
+                </ul>
+            </div>
+            <div class="transportador">
+                <button>Transportador</button>
+                <ul>
+                    <li><a href="http://localhost/nfeasy/public/addtransportador/">Add</a></li>
+                    <li><a href="#">Alterar</a></li>
+                    <li><a href="#">Excluir</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-bar">
+            <a href="/nfeasy/public/adddestinario/" class="underline">Add</a>
+            <a href="/nfeasy/public/mostraremitente/">Mostrar</a>
+        </div>
+
+        <div class="secund-container none" id="secund-container">
+            <p class="title">Sucesso</p>
+            <p class="title-desc">O item foi inserido com sucesso.</p>
+            <div class="buttons">
+                <button onclick="addOutro()" class="submit">Adicionar Outro</button>
+                <button class="submit">Voltar</button>
+            </div>
+        </div>
+
+        <div id="main-container" class="container">
+
+            <p class="title">Adicionar Emitente</p>
+            <p class="title-desc">Use esta seção para cadastrar emitentes.</p>
+
+            <div class="form">
+                <div class="form-group">
+                    <label for="nome:">Nome:</label>
+                    <input id="nome" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="CNPJ:">CNPJ:</label>
+                    <input id="cnpj" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="uf:">UF:</label>
+                    <input id="uf" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label for="uf:">Inscrição Estadual:</label>
+                    <input id="inscricao_estadual" type="text">
+                </div>
+            </div>
+            
+            <div class="buttons">
+                <button onclick="create()" class="submit">Cadastrar</button>
+                <p id="error"></p>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
