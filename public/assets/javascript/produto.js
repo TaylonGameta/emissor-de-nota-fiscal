@@ -42,10 +42,10 @@ function addOutro(){
 function create(){
 
     const produto = {
-        descricao : document.getElementById("descricao").value,
-        valor_unitario : document.getElementById("valor-unitario").value,
-        
+        descricao: document.getElementById("descricao").value,
+        valor_unitario: Number(document.getElementById("valor-unitario").value),
     }
+
 
     axios({
         url: "http://localhost/nfeasy/public/api/produto/create.php",
@@ -54,6 +54,8 @@ function create(){
         data:{ ...produto }
     })
     .then(result=>{
+        console.log(result)
+
         if(result.data.success){
             let container =  document.getElementById('main-container')
             container.classList.add("none")
@@ -62,4 +64,5 @@ function create(){
             sContainer.classList.remove("none")
         }
     })
+
 }

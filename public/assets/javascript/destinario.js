@@ -19,13 +19,13 @@ function fetchData(){
         if(table){
             result.data.forEach(item=>{
                 table.insertAdjacentHTML("beforeend", `
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.nome}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.cnpj}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.endereco}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.municipio}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.uf}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.telefone}</a></td>
-                    <td><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.inscricao_estadual}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.nome}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.cnpj}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.endereco}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.municipio}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.uf}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.telefone}</a></td>
+                    <td class=table-item><a href=http://localhost/nfeasy/public/destinario/getitem.php?id=${item.id}>${item.inscricao_estadual}</a></td>
                 `)
             })
         }

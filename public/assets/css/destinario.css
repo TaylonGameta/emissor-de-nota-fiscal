@@ -261,16 +261,24 @@ table td a{
 
 table td{
     padding: 20px;
-    color: #bbb; 
+    color: #333; 
     font-size: 14px;
 }
 
 table tr:hover{
-    cursor: pointer;
     background-color: #3A3A3A;
 }
 
 .table{
     padding-left: 20px;
     padding-top: 20px;
+}
+
+@keyframes item{
+    from{transform: translateX(10px); opacity: 0;}
+    from{transform: translateX((0px)); opacity: 1;}
+}
+
+.table-item{
+    animation: item 0.5s forwards;
 }

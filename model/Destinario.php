@@ -102,9 +102,11 @@
                 extract($row);
                 
                 $data[] = array(
+                    'id'=> $id,
                     'nome'=> $nome,
                     'cnpj'=> $cnpj,
                     'endereco' => $endereco,
+                    'municipio' => $municipio,
                     'uf'=> $uf,
                     'telefone'=> $telefone,
                     'inscricao_estadual' => $inscricao_estadual
